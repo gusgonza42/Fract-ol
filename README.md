@@ -21,6 +21,11 @@ Para obtener información más detallada, consulta el [**Subject**](https://gith
 ### Requisitos
 
 El proyecto está desarrollado en C y utiliza la biblioteca miniLibX para la manipulación gráfica. Asegúrate de tener instalado miniLibX correctamente para compilar y ejecutar el programa.
+### miniLibX (mlx 42 de Codam)
+Este proyecto utiliza la miniLibX versión 42 de Codam, que puedes encontrar en el siguiente repositorio: [MLX42](https://github.com/codam-coding-college/MLX42).
+
+> [!NOTE]
+> Asegúrate de tenerla instalada y configurada correctamente en tu entorno de desarrollo.
 
 ### Funcionalidades Obligatorias
 
