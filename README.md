@@ -14,7 +14,7 @@
 
 Este proyecto te permitirá explorar y visualizar fractales matemáticos como los conjuntos de Julia y Mandelbrot. Utiliza la biblioteca miniLibX para renderizar los fractales en una ventana gráfica interactiva. El programa permite la exploración de diferentes tipos de fractales mediante parámetros pasados por la línea de comandos, ofreciendo zoom y manipulación visual para una experiencia interactiva.
 
-Para obtener información más detallada, consulta el [**Subject**](https://github.com/gusgonza42/fractol/blob/main/Fractol.es.subject.pdf).
+Para obtener información más detallada, consulta el [**Subject**](https://github.com/gusgonza42/fractool/blob/main/Fractol.es.subject.pdf).
 
 ## 🛠️ Uso
 
