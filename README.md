@@ -22,6 +22,19 @@ Para obtener información más detallada, consulta el [**Subject**](https://gith
 
 El proyecto está desarrollado en C y utiliza la biblioteca miniLibX para la manipulación gráfica. Asegúrate de tener instalado miniLibX correctamente para compilar y ejecutar el programa.
 
+### Funcionalidades Obligatorias
+
+- Implementación de los conjuntos de Julia y Mandelbrot como fractales visuales.
+- Interacción mediante zoom in y zoom out usando la rueda del ratón.
+- Manipulación fluida de la ventana gráfica.
+- Especificación del tipo de fractal a visualizar mediante parámetros de línea de comandos.
+
+### Funcionalidades Opcionales (Bonus)
+
+- Implementación de fractales adicionales (por ejemplo, el conjunto de Burning Ship).
+- Interactividad mejorada como zoom que sigue la posición del ratón y navegación con flechas del teclado.
+- Personalización del rango de colores utilizados para representar los fractales.
+
 ### Instrucciones
 
 **1. Compilación**
