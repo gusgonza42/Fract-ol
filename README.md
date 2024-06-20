@@ -1,8 +1,8 @@
 <div align="center">
 <h1>fractol</h1>
-<img src="https://raw.githubusercontent.com/gusgonza42/my-utils-gusgonza/main/ft_badges_42/badge_01_fractol_500px.png" style="width: 150px; height: 150px;">
+<img src="https://raw.githubusercontent.com/gusgonza42/my-utils-gusgonza/main/ft_badges_42/badge_02_fractol_500px.png" style="width: 150px; height: 150px;">
 
-[![Build Status](https://img.shields.io/static/v1?label=Build%20Status&message=success&color=green)](https://github.com/gusgonza42/fractol)
+[![Build Status](https://img.shields.io/static/v1?label=Build%20Status&message=in%20progress&color=yellow)](https://github.com/gusgonza42/fractol)
 
 </div>
 
