@@ -5,7 +5,7 @@ NAME = libftprintf.a
 CC = gcc
 
 # <-- Compilation Flags --> #
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -I ../../includes
 
 # <-- Remove Command -->#
 RM = rm -f
