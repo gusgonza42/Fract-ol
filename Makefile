@@ -1,14 +1,14 @@
-SRCS	= main.c \
+SRCS	= ft_main.c \
 
-OBJS	= ${addprefix objects/, ${SRCS:.c=.o}}
+OBJS	= ${addprefix objects/, ${SRCS:.c=.o}} 
 
 NAME	= fdf
 
 RM		= rm -rf
 
 CC		= gcc
-
-CFLAGS	= -Wall -Wextra -Werror
+## pa no incluir cosas
+CFLAGS	= -Wall -Wextra -Werror -I ./libs/MLX42/include/MLX42 -I ./includes
 
 LIBFT	= libs/libft/libft.a
 FT_PRINTF = libs/ft_printf/libftprint.a
