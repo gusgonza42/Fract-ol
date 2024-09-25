@@ -6,11 +6,13 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 10:37:00 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/23 11:42:16 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:27:32 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "minilibx-linux/mlx.h"
+
 
 int main(int ac, char *av[])
 {
@@ -22,7 +24,7 @@ int main(int ac, char *av[])
 		printf("init()\n");
 		fractal.name = av[1];
 		fractal_init(&fractal);
-		//fractal_render(&fractal);
+		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
 
 	}
@@ -33,5 +35,6 @@ int main(int ac, char *av[])
 		malloc_error();
 
 	}
+	return (0);
 
 }
