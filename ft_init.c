@@ -22,8 +22,8 @@ static void	data_init(t_fractal *fractal)
 {
 	fractal->escape_val = 4;
 	fractal->iter_def = 42;
-	fractal->shift_x = 0.0;
-	fractal->shift_y = 0.0;
+	fractal->x_shift = 0.0;
+	fractal->y_shift = 0.0;
 	fractal->zoom = 1.0;
 }
 
@@ -57,8 +57,8 @@ void	fractal_init(t_fractal *fractal)
 		free(fractal->mlx_connection);
 		malloc_error();
 	}
-	fractal->img.aadr = mlx_get_data_addr(fractal->img.img_ptr,
-			&fractal->img.bits_per_pixel, &fractal->img.line_length,
+	fractal->img.addr = mlx_get_data_addr(fractal->img.img_ptr,
+			&fractal->img.bits_per_pixel, &fractal->img.line_len,
 			&fractal->img.endian);
 	events_init(fractal);
 	data_init(fractal);

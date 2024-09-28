@@ -25,19 +25,19 @@ int	main(int ac, char *av[])
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
 	}
-	else if (4 == ac && !ft_strncmp(av[1], "julia", 6) && ft_chkr([2])
+	else if (4 == ac && !ft_strncmp(av[1], "julia", 6) && ft_chkr(av[2])
 		&& ft_chkr(av[3]))
 	{
 		fractal.name = av[1];
-		fractal.julia_x = ft_atodbl(av[2]);
-		fractal.julia_y = ft_atodbl(av[3]);
+		fractal.julia_x = ft_atoidbl(av[2]);
+		fractal.julia_y = ft_atoidbl(av[3]);
 		fractal_init(&fractal);
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
 	{
-		ft_putstr_fd(ERRORMSSG1 + ERRORMSSG2 + ERRORMSSG3, 2);
+		ft_putstr_fd(ERRORMSSG1, 2);
 		exit(EXIT_FAILURE);
 	}
 	return (0);
@@ -47,7 +47,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	dst = data->addr + (y * data->line_len + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 /*

@@ -14,6 +14,7 @@
 # define FRACTOL_H
 
 # include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 # include "minilibx-linux/mlx.h"
 # include <math.h>
 # include <stdio.h>
@@ -65,9 +66,9 @@ typedef struct s_complex
 
 typedef struct s_img
 {
-	void	*img;
+	void	*img_ptr;
 	char	*addr;
-	int		bpp;
+	int		bits_per_pixel;
 	int		line_len;
 	int		endian;
 }			t_img;
@@ -78,6 +79,8 @@ typedef struct s_fractal
 	void	*mlx_connection;
 	void	*mlx_window;
 	t_img	img;
+	double	escape_val;
+	int		iter_def;
 	double	x_shift;
 	double	y_shift;
 	double	zoom;
