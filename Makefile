@@ -26,7 +26,7 @@ HEADER = fractol.h
 MAKEFILE = Makefile
 
 # <-- Files --> #
-SRC_FILES = ft_main.c ft_init.c ft_events.c ft_math_utils.c
+SRC_FILES = ft_main.c ft_init.c ft_events.c ft_math_utils.c ft_render.c
 
 
 # <-- Objects --> #
@@ -55,7 +55,7 @@ clean:
 	@$(RM) $(OBJS) 
 	@make clean -sC libft
 	@make clean -sC ft_printf
-	@make clean -sC minilibx-linux
+	@make -k clean -sC minilibx-linux || echo "Skipping clean in minilibx-linux"
 	@echo "🗑️  🚀 Objects destroyed successfully by $(NAME)!"
 
 # <-- Clean Execution + libft.a Destruction --> #
@@ -63,7 +63,7 @@ fclean: clean
 	@$(RM) $(NAME)
 	@make fclean -sC libft
 	@make fclean -sC ft_printf
-	@make fclean -sC minilibx-linux
+	@make -k fclean -sC minilibx-linux || echo "Skipping fclean in minilibx-linux"
 	@echo "🗑️  🛰  $(NAME) destroyed successfully by $(NAME)!"
 
 # <-- Re Execution -->
