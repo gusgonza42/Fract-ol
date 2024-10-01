@@ -5,20 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 14:24:23 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/28 14:30:14 by gusgonza         ###   ########.fr       */
+/*   Created: 2024/10/01 16:24:10 by gusgonza          #+#    #+#             */
+/*   Updated: 2024/10/01 16:24:11 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	close_handler(t_fractal *fractal)
+static void	cleanup_and_exit(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
 	mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
 	mlx_destroy_display(fractal->mlx_connection);
 	free(fractal->mlx_connection);
-	exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
+}
+
+int	close_handler(t_fractal *fractal)
+{
+	cleanup_and_exit(fractal);
+	return (0);
 }
 
 int	key_handler(int keycode, t_fractal *fractal)

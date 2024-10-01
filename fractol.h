@@ -13,8 +13,8 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
+# include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
 # include <math.h>
 # include <stdio.h>
@@ -36,17 +36,17 @@
 # define BLUE 0x0000FF
 
 /*<-- SPECIAL COLORS -->*/
-# define MAGENTABURTS 0xFF00FF // RGB(255, 0, 255)
-# define LIMESHOCK 0x32CD32 // RGB(50, 205, 50)
-# define NEON_ORANGE 0xFF4500 // RGB(255, 69, 0)
-# define ACID_GREEN 0xB0FF00 // RGB(176, 255, 0)
-# define ELECTRIC_BLUE 0x7DF9FF // RGB(125, 249, 255)
-# define ULTRA_VIOLET 0x6A0DAD // RGB(106, 13, 173)
-# define PSY_YELLOW 0xFFFF33 // RGB(255, 255, 51)
-# define FLUORESCENT_PINK 0xFF1493 // RGB(255, 20, 147)
-# define LASER_LEMON 0xFFFF66 // RGB(255, 255, 102)
-# define HOT_PINK 0xFF69B4 // RGB(255, 105, 180)
-# define RADIANT_RED 0xFF5555 // RGB(255, 85, 85)
+# define MAGENTABURST 0xFF00FF
+# define LIMESHOCK 0x32CD32
+# define NEON_ORANGE 0xFF4500
+# define ACID_GREEN 0xB0FF00
+# define ELECTRIC_BLUE 0x7DF9FF
+# define ULTRA_VIOLET 0x6A0DAD
+# define PSY_YELLOW 0xFFFF33
+# define FLUORESCENT_PINK 0xFF1493
+# define LASER_LEMON 0xFFFF66
+# define HOT_PINK 0xFF69B4
+# define RADIANT_RED 0xFF5555
 
 /* KEY CODES*/
 # define K_ESC 0xff1b

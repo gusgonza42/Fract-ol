@@ -12,7 +12,8 @@
 
 #include "fractol.h"
 
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void	handle_fractal(t_fractal *fractal);
+void	print_usage_and_exit(void);
 
 int	main(int ac, char *av[])
 {
@@ -21,9 +22,6 @@ int	main(int ac, char *av[])
 	if (2 == ac && !ft_strncmp(av[1], "mandelbrot", 11))
 	{
 		fractal.name = av[1];
-		fractal_init(&fractal);
-		fractal_render(&fractal);
-		mlx_loop(fractal.mlx_connection);
 	}
 	else if (4 == ac && !ft_strncmp(av[1], "julia", 6) && ft_chkr(av[2])
 		&& ft_chkr(av[3]))
@@ -31,42 +29,29 @@ int	main(int ac, char *av[])
 		fractal.name = av[1];
 		fractal.julia_x = ft_atoidbl(av[2]);
 		fractal.julia_y = ft_atoidbl(av[3]);
-		fractal_init(&fractal);
-		fractal_render(&fractal);
-		mlx_loop(fractal.mlx_connection);
 	}
 	else
 	{
-		ft_putstr_fd(ERRORMSSG1, 2);
-		exit(EXIT_FAILURE);
+		print_usage_and_exit();
 	}
+	fractal_init(&fractal);
+	fractal_render(&fractal);
+	mlx_loop(fractal.mlx_connection);
 	return (0);
 }
 
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
+void	print_usage_and_exit(void)
 {
-	char	*dst;
-
-	dst = data->addr + (y * data->line_len + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	ft_putstr_fd(ERRORMSSG1, 2);
+	ft_putstr_fd(ERRORMSSG2, 2);
+	ft_putstr_fd(ERRORMSSG3, 2);
+	exit(EXIT_FAILURE);
 }
-/*
-int	main(void)
+
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-	t_complex	c;
-	t_complex	z;
-	t_complex	tmp_real;
+	int	offset;
 
-	z.real = 0;
-	z.imaginary = 0;
-	c.real = 0.285;
-	c.imaginary = 0.01;
-	for (int i = 0; i < 100; i++)
-	{
-		tmp_real.real = z.real;
-		z.real = z.real * z.real - z.imaginary * z.imaginary + c.real;
-		z.imaginary = 2 * tmp_real.real * z.imaginary + c.imaginary;
-		printf("z.real: %f\nz.imaginary: %f\n", z.real, z.imaginary);
-	}
+	offset = (img->line_len * y) + (x * (img->bits_per_pixel / 8));
+	*((unsigned int *)(img->addr + offset)) = color;
 }
-*/

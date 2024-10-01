@@ -12,9 +12,12 @@
 
 #include "fractol.h"
 
-static void	malloc_error(void)
+static void	malloc_error(t_fractal *fractal)
 {
 	ft_printf("Malloc error.\n");
+	mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
+	mlx_destroy_display(fractal->mlx_connection);
+	free(fractal->mlx_connection);
 	exit(EXIT_FAILURE);
 }
 
@@ -31,32 +34,23 @@ static void	events_init(t_fractal *fractal)
 {
 	mlx_hook(fractal->mlx_window, 02, (1L << 0), key_handler, fractal);
 	mlx_hook(fractal->mlx_window, 04, (1L << 2), mouse_handler, fractal);
-	mlx_hook(fractal->mlx_window, 06, (1L << 6), motion_handler, fractal);
 	mlx_hook(fractal->mlx_window, 17, (1L << 17), close_handler, fractal);
+	mlx_hook(fractal->mlx_window, 06, (1L << 6), motion_handler, fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
 {
 	fractal->mlx_connection = mlx_init();
 	if (fractal->mlx_connection == NULL)
-		malloc_error();
+		malloc_error(fractal);
 	fractal->mlx_window = mlx_new_window(fractal->mlx_connection, WIDTH, HEIGHT,
 			fractal->name);
 	if (fractal->mlx_window == NULL)
-	{
-		mlx_destroy_display(fractal->mlx_connection);
-		free(fractal->mlx_connection);
-		malloc_error();
-	}
+		malloc_error(fractal);
 	fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection, WIDTH,
 			HEIGHT);
 	if (fractal->img.img_ptr == NULL)
-	{
-		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
-		mlx_destroy_display(fractal->mlx_connection);
-		free(fractal->mlx_connection);
-		malloc_error();
-	}
+		malloc_error(fractal);
 	fractal->img.addr = mlx_get_data_addr(fractal->img.img_ptr,
 			&fractal->img.bits_per_pixel, &fractal->img.line_len,
 			&fractal->img.endian);
